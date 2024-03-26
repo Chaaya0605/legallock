@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import './Loginform.css';
 import logo from '../../Assets/metamask.svg'
 import { MdAccountCircle } from "react-icons/md";
+import web3 from '../../web3'
 
+
+import { ethers } from "ethers";
 const Loginform = () => {
-    const [redirect, setRedirect] = useState(false);
-
-    const handleLogin = () => {
-    // Implement login logic here
-    // Assuming login is successful, set redirect to true
+  
+  const [redirect, setRedirect] = useState(false);
+  
+  
+  const handleLogin =  () => {
+    
     setRedirect(true);
   };
+  
+ 
+  
+  
+  
+
 
   if (redirect) {
     return <Navigate to="/dashboard" />;
@@ -26,7 +36,7 @@ const Loginform = () => {
                 <img src ={logo} className='login-icon' alt='logo' />
             </div>
 
-            <button type='submit' onClick={handleLogin}>Login with MetaMask</button>
+            <button type='submit' onClick={handleLogin}>Loading Metamask</button>
 
             <div className='register-link'>
                 <p>Don't have a MetaMask account? 
